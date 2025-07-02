@@ -5,23 +5,589 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primaryColor"
     tools:context=".MainActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/my_toolbar"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:elevation="4dp"
-        android:titleTextColor="@android:color/white" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <!--My Family Header-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginTop="100dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="20dp">
 
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="My Family"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Home"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
+
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_bell"
+                app:tint="@android:color/white" />
+        </LinearLayout>
+
+        <!-- Tiles View-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/primaryColor"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:padding="4dp"
+            android:weightSum="2">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:alpha="1"
+                    app:cardBackgroundColor="@color/cardBackground"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:id="@+id/imageCalendar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_calendar"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/calendarTitleLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Calendar"
+                            android:textColor="@android:color/white"
+                            android:textFontWeight="@android:integer/config_mediumAnimTime"
+                            android:textSize="20dp"
+                            app:layout_constraintEnd_toEndOf="@+id/imageCalendar"
+                            app:layout_constraintStart_toStartOf="@+id/imageCalendar"
+                            app:layout_constraintTop_toBottomOf="@+id/imageCalendar" />
+
+                        <TextView
+                            android:id="@+id/calendarSubTitleLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:alpha="0.5"
+                            android:text="March Wednesday"
+                            android:textColor="@android:color/white"
+                            android:textFontWeight="@android:integer/config_mediumAnimTime"
+                            android:textSize="10sp"
+                            app:layout_constraintEnd_toEndOf="@+id/calendarTitleLabel"
+                            app:layout_constraintStart_toStartOf="@+id/calendarTitleLabel"
+                            app:layout_constraintTop_toBottomOf="@+id/calendarTitleLabel" />
+
+                        <TextView
+                            android:id="@+id/calendarEventCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:alpha="0.4"
+                            android:text="3 Events"
+                            android:textColor="@android:color/white"
+                            android:textFontWeight="@android:integer/config_mediumAnimTime"
+                            android:textSize="12sp"
+                            app:layout_constraintEnd_toEndOf="@+id/calendarSubTitleLabel"
+                            app:layout_constraintStart_toStartOf="@+id/calendarSubTitleLabel"
+                            app:layout_constraintTop_toBottomOf="@+id/calendarSubTitleLabel" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:alpha="1"
+                    app:cardBackgroundColor="@color/cardBackground"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:id="@+id/imageGroccery"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_groccery"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/grocceryTitleLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Groceries"
+                            android:textColor="@android:color/white"
+                            android:textFontWeight="@android:integer/config_mediumAnimTime"
+                            android:textSize="20dp"
+                            app:layout_constraintEnd_toEndOf="@+id/imageGroccery"
+                            app:layout_constraintStart_toStartOf="@+id/imageGroccery"
+                            app:layout_constraintTop_toBottomOf="@+id/imageGroccery" />
+
+                        <TextView
+                            android:id="@+id/groccerySubTitleLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:alpha="0.5"
+                            android:text="Bocali, Apple"
+                            android:textColor="@android:color/white"
+                            android:textFontWeight="@android:integer/config_mediumAnimTime"
+                            android:textSize="10sp"
+                            app:layout_constraintEnd_toEndOf="@+id/grocceryTitleLabel"
+                            app:layout_constraintStart_toStartOf="@+id/grocceryTitleLabel"
+                            app:layout_constraintTop_toBottomOf="@+id/grocceryTitleLabel" />
+
+                        <TextView
+                            android:id="@+id/grocceryEventCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:alpha="0.4"
+                            android:text="4 Items"
+                            android:textColor="@android:color/white"
+                            android:textFontWeight="@android:integer/config_mediumAnimTime"
+                            android:textSize="12sp"
+                            app:layout_constraintEnd_toEndOf="@+id/groccerySubTitleLabel"
+                            app:layout_constraintStart_toStartOf="@+id/groccerySubTitleLabel"
+                            app:layout_constraintTop_toBottomOf="@+id/groccerySubTitleLabel" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/primaryColor"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:padding="4dp"
+            android:weightSum="2">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:alpha="1"
+                    app:cardBackgroundColor="@color/cardBackground"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:id="@+id/imageLocation"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_location"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/locationTitleLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Location"
+                            android:textColor="@android:color/white"
+                            android:textFontWeight="@android:integer/config_mediumAnimTime"
+                            android:textSize="20dp"
+                            app:layout_constraintEnd_toEndOf="@+id/imageLocation"
+                            app:layout_constraintStart_toStartOf="@+id/imageLocation"
+                            app:layout_constraintTop_toBottomOf="@+id/imageLocation" />
+
+                        <TextView
+                            android:id="@+id/locationSubTitleLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:alpha="0.5"
+                            android:text="Man Going to office"
+                            android:textColor="@android:color/white"
+                            android:textFontWeight="@android:integer/config_mediumAnimTime"
+                            android:textSize="10sp"
+                            app:layout_constraintEnd_toEndOf="@+id/locationTitleLabel"
+                            app:layout_constraintStart_toStartOf="@+id/locationTitleLabel"
+                            app:layout_constraintTop_toBottomOf="@+id/locationTitleLabel" />
+
+                        <TextView
+                            android:id="@+id/locationEventCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:alpha="0.4"
+                            android:text="1 Location"
+                            android:textColor="@android:color/white"
+                            android:textFontWeight="@android:integer/config_mediumAnimTime"
+                            android:textSize="12sp"
+                            app:layout_constraintEnd_toEndOf="@+id/locationSubTitleLabel"
+                            app:layout_constraintStart_toStartOf="@+id/locationSubTitleLabel"
+                            app:layout_constraintTop_toBottomOf="@+id/locationSubTitleLabel" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:alpha="1"
+                    app:cardBackgroundColor="@color/cardBackground"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:id="@+id/imageActivity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_activity"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/activityTitleLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Activity"
+                            android:textColor="@android:color/white"
+                            android:textFontWeight="@android:integer/config_mediumAnimTime"
+                            android:textSize="20dp"
+                            app:layout_constraintEnd_toEndOf="@+id/imageActivity"
+                            app:layout_constraintStart_toStartOf="@+id/imageActivity"
+                            app:layout_constraintTop_toBottomOf="@+id/imageActivity" />
+
+                        <TextView
+                            android:id="@+id/activitySubTitleLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:alpha="0.5"
+                            android:text="Rose favourite post"
+                            android:textColor="@android:color/white"
+                            android:textFontWeight="@android:integer/config_mediumAnimTime"
+                            android:textSize="10sp"
+                            app:layout_constraintEnd_toEndOf="@+id/activityTitleLabel"
+                            app:layout_constraintStart_toStartOf="@+id/activityTitleLabel"
+                            app:layout_constraintTop_toBottomOf="@+id/activityTitleLabel" />
+
+                        <TextView
+                            android:id="@+id/activityEventCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:alpha="0.4"
+                            android:text="1 Post"
+                            android:textColor="@android:color/white"
+                            android:textFontWeight="@android:integer/config_mediumAnimTime"
+                            android:textSize="12sp"
+                            app:layout_constraintEnd_toEndOf="@+id/activitySubTitleLabel"
+                            app:layout_constraintStart_toStartOf="@+id/activitySubTitleLabel"
+                            app:layout_constraintTop_toBottomOf="@+id/activitySubTitleLabel" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/primaryColor"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:padding="4dp"
+            android:weightSum="2">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:alpha="1"
+                    app:cardBackgroundColor="@color/cardBackground"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:id="@+id/imageTodo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_checklist"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/todoTitleLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="To do"
+                            android:textColor="@android:color/white"
+                            android:textFontWeight="@android:integer/config_mediumAnimTime"
+                            android:textSize="20dp"
+                            app:layout_constraintEnd_toEndOf="@+id/imageTodo"
+                            app:layout_constraintStart_toStartOf="@+id/imageTodo"
+                            app:layout_constraintTop_toBottomOf="@+id/imageTodo" />
+
+                        <TextView
+                            android:id="@+id/todoSubTitleLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:alpha="0.5"
+                            android:text="Homework, design"
+                            android:textColor="@android:color/white"
+                            android:textFontWeight="@android:integer/config_mediumAnimTime"
+                            android:textSize="10sp"
+                            app:layout_constraintEnd_toEndOf="@+id/todoTitleLabel"
+                            app:layout_constraintStart_toStartOf="@+id/todoTitleLabel"
+                            app:layout_constraintTop_toBottomOf="@+id/todoTitleLabel" />
+
+                        <TextView
+                            android:id="@+id/todoEventCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:alpha="0.4"
+                            android:text="4 items"
+                            android:textColor="@android:color/white"
+                            android:textFontWeight="@android:integer/config_mediumAnimTime"
+                            android:textSize="12sp"
+                            app:layout_constraintEnd_toEndOf="@+id/todoSubTitleLabel"
+                            app:layout_constraintStart_toStartOf="@+id/todoSubTitleLabel"
+                            app:layout_constraintTop_toBottomOf="@+id/todoSubTitleLabel" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:alpha="1"
+                    app:cardBackgroundColor="@color/cardBackground"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:id="@+id/imageSettings"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_settings"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/settingsTitleLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Settings"
+                            android:textColor="@android:color/white"
+                            android:textFontWeight="@android:integer/config_mediumAnimTime"
+                            android:textSize="20dp"
+                            app:layout_constraintEnd_toEndOf="@+id/imageSettings"
+                            app:layout_constraintStart_toStartOf="@+id/imageSettings"
+                            app:layout_constraintTop_toBottomOf="@+id/imageSettings" />
+
+                        <TextView
+                            android:id="@+id/settingsSubTitleLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:alpha="0.5"
+                            android:text=""
+                            android:textColor="@android:color/white"
+                            android:textFontWeight="@android:integer/config_mediumAnimTime"
+                            android:textSize="10sp"
+                            app:layout_constraintEnd_toEndOf="@+id/settingsTitleLabel"
+                            app:layout_constraintStart_toStartOf="@+id/settingsTitleLabel"
+                            app:layout_constraintTop_toBottomOf="@+id/settingsTitleLabel" />
+
+                        <TextView
+                            android:id="@+id/settingsEventCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:alpha="0.4"
+                            android:text="2 Items"
+                            android:textColor="@android:color/white"
+                            android:textFontWeight="@android:integer/config_mediumAnimTime"
+                            android:textSize="12sp"
+                            app:layout_constraintEnd_toEndOf="@+id/settingsSubTitleLabel"
+                            app:layout_constraintStart_toStartOf="@+id/settingsSubTitleLabel"
+                            app:layout_constraintTop_toBottomOf="@+id/settingsSubTitleLabel" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
 </RelativeLayout>
