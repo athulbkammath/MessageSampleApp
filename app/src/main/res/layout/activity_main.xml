@@ -78,7 +78,8 @@
                 android:layout_weight="1">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
+                    android:id="@+id/CalendarTile"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:alpha="1"
@@ -159,7 +160,8 @@
                 android:layout_weight="1">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
+                    android:id="@+id/GroceryTile"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:alpha="1"
@@ -255,7 +257,7 @@
                 android:layout_weight="1">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:alpha="1"
@@ -336,7 +338,7 @@
                 android:layout_weight="1">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:alpha="1"
@@ -432,7 +434,7 @@
                 android:layout_weight="1">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:alpha="1"
@@ -477,6 +479,7 @@
                             android:layout_marginTop="8dp"
                             android:alpha="0.5"
                             android:text="Homework, design"
+                            android:textAlignment="center"
                             android:textColor="@android:color/white"
                             android:textFontWeight="@android:integer/config_mediumAnimTime"
                             android:textSize="10sp"
